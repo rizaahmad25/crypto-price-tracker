@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Price Tracker | RimuroHengky</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>₿</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="logo-icon">₿</span>
+                <h1>Crypto Tracker</h1>
+            </div>
+            <p class="subtitle">Real-time cryptocurrency prices powered by CoinGecko API</p>
+        </header>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search cryptocurrency (e.g. bitcoin, ethereum)...">
+            <button onclick="searchCrypto()">🔍 Search</button>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="stat-label">Total Market Cap</span>
+                <span class="stat-value" id="totalMarketCap">--</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">24h Volume</span>
+                <span class="stat-value" id="totalVolume">--</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">BTC Dominance</span>
+                <span class="stat-value" id="btcDominance">--</span>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="active" onclick="filterCoins('all')">All</button>
+            <button onclick="filterCoins('gainers')">🚀 Gainers</button>
+            <button onclick="filterCoins('losers')">📉 Losers</button>
+            <button onclick="refreshPrices()">🔄 Refresh</button>
+            <select id="currencySelect" onchange="changeCurrency()">
+                <option value="usd">USD</option>
+                <option value="idr">IDR</option>
+                <option value="eur">EUR</option>
+                <option value="btc">BTC</option>
+                <option value="eth">ETH</option>
+            </select>
+        </div>
+
+        <div class="table-container">
+            <table id="cryptoTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Coin</th>
+                        <th>Price</th>
+                        <th>1h</th>
+                        <th>24h</th>
+                        <th>7d</th>
+                        <th>Market Cap</th>
+                        <th>Volume (24h)</th>
+                    </tr>
+                </thead>
+                <tbody id="cryptoBody">
+                    <tr><td colspan="8" class="loading">
+                        <div class="spinner"></div>
+                        Loading prices...
+                    </td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="last-updated">
+            Last updated: <span id="lastUpdate">--</span>
+            <span class="auto-refresh">Auto-refresh: 60s</span>
+        </div>
+
+        <footer>
+            <p>Built with ❤️ by <a href="https://github.com/rizaahmad25" target="_blank">RimuroHengky</a></p>
+            <p>Data provided by <a href="https://www.coingecko.com/" target="_blank">CoinGecko API</a></p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
