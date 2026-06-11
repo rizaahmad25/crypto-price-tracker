@@ -1,120 +1,94 @@
-<div align="center">
-
 # ₿ Crypto Price Tracker
 
-A beautiful, real-time cryptocurrency price tracker built with vanilla HTML, CSS, and JavaScript.
+Real-time cryptocurrency price tracker with market analytics, search, and multi-currency support. Powered by CoinGecko API.
 
-Powered by [CoinGecko API](https://www.coingecko.com/) — no API key required.
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![CoinGecko](https://img.shields.io/badge/API-CoinGecko-8DC647?style=flat-square&logo=coingecko)
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-blue?style=for-the-badge)](https://rizaahmad25.github.io/crypto-price-tracker/)
+## ✨ Features
 
-</div>
-
----
-
-## 📸 Features
-
-- 🔄 **Real-time prices** — Auto-refreshes every 60 seconds
-- 🔍 **Search** — Find any cryptocurrency instantly
-- 📊 **Market stats** — Total market cap, 24h volume, BTC dominance
-- 🚀 **Gainers/Losers** — Filter by best and worst performers
-- 💱 **Multi-currency** — USD, IDR, EUR, BTC, ETH
+- 📈 **Real-time Prices** — Live cryptocurrency prices with auto-refresh every 60 seconds
+- 🔍 **Search** — Search any cryptocurrency by name or symbol
+- 🚀 **Gainers/Losers** — Filter by top gainers and losers
+- 💱 **Multi-Currency** — USD, IDR, EUR, BTC, ETH display
+- 📊 **Market Stats** — Total market cap, 24h volume, BTC dominance
+- ⏱️ **Time Frames** — 1h, 24h, 7d price changes
 - 📱 **Responsive** — Works on desktop and mobile
-- 🌙 **Dark theme** — Easy on the eyes
+- 🌙 **Dark Theme** — Beautiful dark UI with gradient accents
+- ⚡ **Zero Dependencies** — Pure HTML/CSS/JS, no build step needed
 
-## 🛠️ Tech Stack
+## 🚀 Quick Start
+
+```bash
+# Clone
+git clone https://github.com/rizaahmad25/crypto-price-tracker.git
+cd crypto-price-tracker
+
+# Open directly in browser
+open index.html
+
+# Or use a local server
+npx serve .
+python3 -m http.server 8000
+```
+
+No build step required — just open `index.html` in your browser!
+
+## 🏗️ Architecture
+
+```
+├── index.html       # Main page structure
+├── app.js           # Application logic (220+ lines)
+│   ├── CoinGecko API integration
+│   ├── Price formatting & display
+│   ├── Search & filtering
+│   ├── Market stats calculation
+│   └── Auto-refresh timer
+└── style.css        # Dark theme styles
+```
+
+## 🔧 Tech Stack
 
 | Technology | Purpose |
-|------------|---------|
-| HTML5 | Structure |
-| CSS3 | Styling (dark theme, responsive) |
-| JavaScript (ES6+) | Fetch API, DOM manipulation |
-| CoinGecko API | Cryptocurrency data |
+|-----------|---------|
+| HTML5 | Semantic page structure |
+| CSS3 | Dark theme with gradients |
+| Vanilla JS | Zero-dependency application logic |
+| CoinGecko API | Real-time crypto market data |
 
-## 🚀 Getting Started
+## 📡 API Integration
 
-### Option 1: Open directly
-Simply open `index.html` in your browser.
+Uses [CoinGecko API v3](https://www.coingecko.com/en/api/documentation) (free, no key required):
 
-### Option 2: Live Server (recommended)
-```bash
-# Using VS Code Live Server extension
-# Or using Python
-python -m http.server 8000
-# Then open http://localhost:8000
-```
+- `GET /coins/markets` — Top coins by market cap with price changes
+- `GET /search` — Token search
+- `GET /global` — Global market stats (market cap, volume, BTC dominance)
+- Rate limit: ~10-30 requests/minute (free tier)
 
-### Option 3: GitHub Pages
-1. Fork this repository
-2. Go to Settings → Pages
-3. Select branch: `main`
-4. Your site will be live at `https://yourusername.github.io/crypto-price-tracker/`
+## 🎯 Usage
 
-## 📁 Project Structure
+1. **View top coins** — Default view shows top 50 by market cap
+2. **Search** — Type a coin name to filter
+3. **Filter** — Click "Gainers" or "Losers" to sort by performance
+4. **Switch currency** — Use dropdown to change display currency
+5. **Auto-refresh** — Prices update automatically every 60 seconds
 
-```
-crypto-price-tracker/
-├── index.html      # Main HTML file
-├── style.css       # Styling (dark theme)
-├── app.js          # JavaScript logic
-└── README.md       # This file
-```
+## 🛣️ Roadmap
 
-## 🔧 API Reference
-
-This project uses the [CoinGecko API](https://www.coingecko.com/en/api/documentation) (free tier):
-
-- **No API key required**
-- **Rate limit:** ~10-30 calls/minute
-- **Endpoints used:**
-  - `/coins/markets` — Get coin prices and market data
-  - `/global` — Get global market stats
-
-## 🎨 Customization
-
-### Change default currency
-In `app.js`, modify:
-```javascript
-let currentCurrency = 'usd'; // Change to 'idr', 'eur', 'btc', 'eth'
-```
-
-### Change refresh interval
-In `app.js`, modify:
-```javascript
-setInterval(async () => {
-    await loadCoins();
-}, 60000); // Change 60000 (ms) to your preferred interval
-```
-
-### Change number of displayed coins
-In `app.js`, modify:
-```javascript
-renderCoins(allCoins.slice(0, 50)); // Change 50 to your preferred number
-```
-
-## 📝 What I Learned
-
-- Fetching data from REST APIs using `fetch()`
-- DOM manipulation and dynamic rendering
-- CSS Grid and Flexbox for responsive layouts
-- Handling async/await operations
-- Error handling for API rate limits
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to:
-1. Fork the repository
-2. Create a feature branch
-3. Submit a pull request
+- [ ] WebSocket real-time updates (Binance, Coinbase)
+- [ ] Price alerts with browser notifications
+- [ ] Technical indicators (RSI, MACD, Bollinger Bands)
+- [ ] Portfolio tracking
+- [ ] Multi-exchange price comparison
+- [ ] Historical price charts
+- [ ] Whale alert monitoring
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+MIT License
 
 ---
 
-<div align="center">
-
-**Built with ❤️ by [RimuroHengky](https://github.com/rizaahmad25)**
-
-</div>
+Built with ❤️ by [Riza Ahmad](https://github.com/rizaahmad25) | Data from [CoinGecko](https://www.coingecko.com/)
