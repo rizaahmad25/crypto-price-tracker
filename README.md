@@ -7,6 +7,10 @@ Real-time cryptocurrency price tracker with market analytics, search, and multi-
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![CoinGecko](https://img.shields.io/badge/API-CoinGecko-8DC647?style=flat-square&logo=coingecko)
 
+## 🌐 Live Demo
+
+**🔗 [View Live →](https://rizaahmad25.github.io/crypto-price-tracker/)**
+
 ## ✨ Features
 
 - 📈 **Real-time Prices** — Live cryptocurrency prices with auto-refresh every 60 seconds
